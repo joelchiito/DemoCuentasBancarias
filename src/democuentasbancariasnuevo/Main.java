@@ -7,6 +7,7 @@ package democuentasbancariasnuevo;
 
 import java.util.Scanner;
 import modelo.CuentaBasica;
+import modelo.CuentadeAhorro;
 
 /**
  *
@@ -63,6 +64,56 @@ public class Main {
         System.out.println("Retirar: $1,000.00");
         miCuentaB.retirar (1000.0);
         System.out.println("El saldo actual de la cuenta 16470287 es $" + miCuentaB.getSaldo());
+        
+        
+        CuentadeAhorro misAhorros = new CuentadeAhorro (16470287, "Joel");
+        System.out.println("Mi Cuenta de Ahorros *-*");
+        
+        misAhorros.depositar(50.0);
+        System.out.println("Bienvenido a su cajero automatico *w*");
+        System.out.println("¿Desea Depositar o Retirar?");
+        System.out.println("Depositar");
+        System.out.println("Depositar: $1,000.00");
+        misAhorros.depositar(1000.0);
+        System.out.println("Querido usuario, su depositó se efectuo exitosamente"); 
+        System.out.println("El saldo actual de la cuenta de ahorro 16470287 es $" + misAhorros.getSaldo());
+        System.out.println("                                                  ");
+        System.out.println("Bienvenido a su cajero automatico *w*");
+        System.out.println("¿Desea Depositar o Retirar?");
+        System.out.println("Depositar");
+        System.out.println("Depositar: $1,500.00");
+        misAhorros.depositar(1500.0);
+        System.out.println("Querido usuario, su depositó se efectuo exitosamente"); 
+        System.out.println("El saldo actual de la cuenta de ahorro 16470287 es $" + misAhorros.getSaldo());
+        System.out.println("                                                  ");
+        System.out.println("Bienvenido a su cajero automatico *w*");
+        System.out.println("¿Desea Depositar o Retirar?");
+        System.out.println("Retirar");
+        System.out.println("Retirar: $200.00");
+        misAhorros.retirar (200.0);
+        System.out.println("El saldo actual de la cuenta de ahorro 16470287 es $" + misAhorros.getSaldo());
+        System.out.println("                                                  ");
+        System.out.println("Bienvenido a su cajero automatico *w*");
+        System.out.println("¿Desea Depositar o Retirar?");
+        System.out.println("Depositar");
+        System.out.println("Depositar: $300.00");
+        misAhorros.depositar (300.0);
+        System.out.println("Querido usuario, su depositó se efectuo exitosamente"); 
+        System.out.println("El saldo actual de la cuenta de ahorro 16470287 es $" + misAhorros.getSaldo());
+        System.out.println("                                                  ");
+        System.out.println("Bienvenido a su cajero automatico *w*");
+        System.out.println("¿Desea Depositar o Retirar?");
+        System.out.println("Retirar"); 
+        System.out.println("Retirar: $1,000.00");
+        misAhorros.retirar (1000.0);
+        System.out.println("El saldo actual de la cuenta de ahorro 16470287 es $" + misAhorros.getSaldo());
+        System.out.println("                                                  ");
+        System.out.println("Intereses generadas por la cuenta: $" + misAhorros.calcularIntereses());
+        System.out.println("                                                  ");
+        System.out.println("Comisiones generadas por la cuenta: $" + misAhorros.calcularComisión());
+        System.out.println("                                                  ");
+        System.out.println("Corte mensual: " + (( misAhorros.getSaldo() +  misAhorros.calcularIntereses())- misAhorros.calcularComisión()));
+        System.out.println("Saldo final de la cuenta: $" + misAhorros.getSaldo());
     }
     
 }

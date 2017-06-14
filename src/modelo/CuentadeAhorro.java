@@ -9,12 +9,16 @@ package modelo;
  *
  * @author hp245
  */
-public class CuentaBasica {
+public class CuentadeAhorro {
     private int numerodeCuenta;
     private String cliente;
     private double saldo;
+    private double tasadeIntereses;
+    private double comisionPorSaldo;
     
-    public CuentaBasica (int numerodeCuenta, String cliente){
+    private static final double SALDO_ACREEDOR = 50.0;
+    
+    public CuentadeAhorro (int numerodeCuenta, String cliente){
         this.numerodeCuenta = numerodeCuenta;
         this.cliente = cliente;
     }
@@ -27,7 +31,6 @@ public class CuentaBasica {
         boolean SaldoMayoroIgual;
         if ( cantidad > 0){
             SaldoMayoroIgual = true;
-            System.out.println("Querido usuario, su depositó se efectuo exitosamente"); 
         }
         else {
             SaldoMayoroIgual = false;
@@ -50,5 +53,23 @@ public class CuentaBasica {
         return seQuiereRetirar;
     }
     
+    public double calcularIntereses (){
+           tasadeIntereses = (((4.00/365.00)*30.00) * this.getSaldo()/100.00);
+           return tasadeIntereses;
+    }
     
+    public double calcularComisión (){
+        if ( this.getSaldo() < 1000.0){
+            comisionPorSaldo = SALDO_ACREEDOR;
+        }
+        else{
+            comisionPorSaldo = 0.0;
+        }
+        return comisionPorSaldo;
+    }
+    
+    public void calcularCortedeMes (){
+        double corte;
+        saldo =((this.getSaldo() + tasadeIntereses )- comisionPorSaldo) ;
+    }
 }
